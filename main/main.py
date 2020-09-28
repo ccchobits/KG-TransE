@@ -103,6 +103,9 @@ for epoch in range(1, epochs + 1):
         optimizer.step()
         total_loss += loss
 
+    if epoch % 20 == 0:
+        print("epoch %d: lr: %.4f average loss per batch: %.4f" %
+              (epoch, learning_rate, total_loss / (n_train // batch_size)), flush = True)
     total_loss = 0
 
 ### evaluate the triples in test_data
