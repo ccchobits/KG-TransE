@@ -44,11 +44,10 @@ lr_decay = configs.lr_decay
 norm = configs.norm
 
 ### load data
+# train_data shape: (num_triplet, 3), type: torch.tensor, location: cpu
 n_train, train_data = get_data(dataset_name=dataset_name, mode="train")
 n_valid, valid_data = get_data(dataset_name=dataset_name, mode="valid")
 n_test, test_data = get_data(dataset_name=dataset_name, mode="test")
-# train_data shape: (num_triplet, 3), type: torch.tensor, location: cuda
-train_data, valid_data, test_data = train_data.to(device), valid_data.to(device), test_data.to(device)
 
 n_ent = int(open(os.path.join("../data/raw", dataset_name, "entity2id.txt")).readline().strip())
 n_rel = int(open(os.path.join("../data/raw", dataset_name, "relation2id.txt")).readline().strip())
@@ -90,12 +89,13 @@ for epoch in range(1, epochs + 1):
     if epoch % 10 == 0:
         learning_rate /= lr_decay
         optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
-    shuffled_indices = torch.randperm(n_train).to(device)
+    shuffled_indices = torch.randperm(n_train)
     for i in range(0, n_train, batch_size):
         end = i + batch_size if i + batch_size <= n_train else n_train
         indice = shuffled_indices[i:end]
         pos_samples = train_data[indice]
         neg_samples = get_neg_samples(pos_samples)
+        pos_samples, neg_samples = pos_samples.to(device), neg_samples.to(device)
 
         optimizer.zero_grad()
         loss = model(pos_samples, neg_samples)
