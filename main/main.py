@@ -153,7 +153,7 @@ def rank(triplet):
 def evaluate():
     ranks = []
     for triplet in test_data:
-        ranks.append(rank(triplet))
+        ranks.append(rank(triplet.to(device)))
     ranks = np.array(ranks)
     mean_rank = ranks.mean(axis=0, dtype=np.long)
     hit10 = np.sum(ranks <= 10, axis=0) / len(ranks)
