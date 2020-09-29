@@ -17,4 +17,4 @@ def write_performance(configs, performance, path):
         for key, value in all_arguments:
             f.write("%-8s" % key + ":" + "%-5s" % value + "|")
         f.write("\n")
-        f.write(performance)
+        f.write(performance.to_string())
