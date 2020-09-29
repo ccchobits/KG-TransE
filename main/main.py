@@ -161,9 +161,9 @@ def evaluate():
                           index=["tail: raw ranking", "tail: filtered ranking", "head: raw ranking",
                                  "head: filtered ranking"])
     result["hit10"] = result["hit10"].apply(lambda x: "%.2f%%" % (x * 100))
-    return ranks
+    return result
 
 
 model.eval()
-ranks = evaluate()
+result = evaluate()
 write_performance(configs, result, "../scripts/asset/performance.result")
