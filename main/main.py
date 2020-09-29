@@ -166,4 +166,4 @@ def evaluate():
 
 model.eval()
 ranks = evaluate()
-write_performance(configs, ranks, "../scripts/asset/performance.txt")
+write_performance(configs, ranks, "../scripts/asset/performance.result")
