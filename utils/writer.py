@@ -15,6 +15,6 @@ def write_performance(configs, performance, path):
     with open(path, "a") as f:
         all_arguments = sorted(filter(lambda x: x[0] not in filtered_arguments, list(vars(configs).items())))
         for key, value in all_arguments:
-            f.write("%-8s" % key + ":" + "%-5s" % value + "|")
+            f.write(key + ":" + "%-5s" % value + "|")
         f.write("\n")
-        f.write(performance.to_string())
+        f.write(performance.to_string() + "\n")
