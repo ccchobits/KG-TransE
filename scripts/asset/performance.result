@@ -1,0 +1,6 @@
+bern:True |bs:512  |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:1.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             541  67.56%
+tail: filtered ranking        531  72.94%
+head: raw ranking             541  65.92%
+head: filtered ranking        529  70.76%

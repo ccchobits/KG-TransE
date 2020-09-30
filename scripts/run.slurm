@@ -1,4 +1,10 @@
 #!/bin/bash
+#SBATCH -J model_test
+#SBATCH --gres=gpu:2
+#SBATCH -p DGXq
+#SBATCH -w node18
+
+
 
 margin=(1.0 2.0)
 dataset_name=WN18
