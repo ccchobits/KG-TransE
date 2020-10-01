@@ -1,6 +1,6 @@
 import time
 
-filtered_arguments = ["save_path", "seed", "dataset_path", "mode"]
+filtered_arguments = ["save_path", "seed", "dataset_path", "mode", "log"]
 
 # performance.type: pd.DataFrame
 def write_performance(configs, performance, path):

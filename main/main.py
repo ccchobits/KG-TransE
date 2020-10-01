@@ -1,5 +1,6 @@
 import os
 import math
+import time
 import argparse
 
 import numpy as np
@@ -12,6 +13,7 @@ from models.model_transE import TransE
 from utils.loader import get_data
 from utils.processor import head_tail_ratio
 from utils.writer import write_performance
+from utils.logger import write_log
 
 device = torch.device("cuda")
 
@@ -34,6 +36,7 @@ parser.add_argument('--norm', type=int, default=2, help='[1 | 2]')
 parser.add_argument('--seed', type=int, default=12345)
 parser.add_argument('--dataset_path', type=str, default='../data/raw')
 parser.add_argument('--mode', type=str, default='train', help='[prepro | train | test | infer]')
+parser.add_argument('--log', type=bool_parser, default=True, help='logging or not')
 configs = parser.parse_args()
 
 
@@ -166,9 +169,13 @@ def evaluate():
                           index=["tail: raw ranking", "tail: filtered ranking", "head: raw ranking",
                                  "head: filtered ranking"])
     result["hit10"] = result["hit10"].apply(lambda x: "%.2f%%" % (x * 100))
-    return result
+    ranks = pd.DataFrame(ranks, columns = ["tail:raw", "tail:filtered", "head:raw", "head:filtered"])
+    return ranks, result
 
 
 model.eval()
-result = evaluate()
+ranks, result = evaluate()
 write_performance(configs, result, "../scripts/asset/performance.result")
+
+if configs.log:
+    write_log(ranks)
