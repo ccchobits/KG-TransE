@@ -42,7 +42,7 @@ dim = configs.dim
 margin = configs.margin
 lr_decay = configs.lr_decay
 norm = configs.norm
-
+print("bern1: %s" % str(bern), flush = True)
 ### load data
 # train_data shape: (num_triplet, 3), type: torch.tensor, location: cpu
 n_train, train_data = get_data(dataset_name=dataset_name, mode="train")
