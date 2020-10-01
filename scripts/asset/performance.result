@@ -4,3 +4,75 @@ tail: raw ranking             541  67.56%
 tail: filtered ranking        531  72.94%
 head: raw ranking             541  65.92%
 head: filtered ranking        529  70.76%
+bern:True |bs:1024 |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:1.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             607  70.16%
+tail: filtered ranking        596  75.80%
+head: raw ranking             608  69.30%
+head: filtered ranking        596  75.28%
+bern:True |bs:2048 |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:1.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             680  70.84%
+tail: filtered ranking        669  77.18%
+head: raw ranking             643  69.74%
+head: filtered ranking        631  76.18%
+bern:True |bs:512  |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:1.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             555  67.10%
+tail: filtered ranking        544  72.34%
+head: raw ranking             546  66.14%
+head: filtered ranking        534  71.28%
+bern:True |bs:1024 |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:1.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             533  70.52%
+tail: filtered ranking        522  75.98%
+head: raw ranking             508  68.94%
+head: filtered ranking        496  75.36%
+bern:True |bs:2048 |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:1.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             727  70.84%
+tail: filtered ranking        716  76.84%
+head: raw ranking             690  68.46%
+head: filtered ranking        677  75.66%
+bern:True |bs:512  |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             375  75.52%
+tail: filtered ranking        364  82.30%
+head: raw ranking             363  73.50%
+head: filtered ranking        350  80.94%
+bern:True |bs:1024 |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             393  76.60%
+tail: filtered ranking        381  84.60%
+head: raw ranking             368  75.24%
+head: filtered ranking        355  83.52%
+bern:True |bs:2048 |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             466  79.10%
+tail: filtered ranking        454  87.84%
+head: raw ranking             463  77.74%
+head: filtered ranking        450  87.06%
+bern:True |bs:512  |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             423  75.12%
+tail: filtered ranking        412  82.04%
+head: raw ranking             422  72.72%
+head: filtered ranking        409  80.50%
+bern:True |bs:1024 |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             405  77.50%
+tail: filtered ranking        394  85.16%
+head: raw ranking             398  76.10%
+head: filtered ranking        386  84.42%
+bern:True |bs:2048 |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.8  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             487  79.56%
+tail: filtered ranking        476  88.12%
+head: raw ranking             437  77.98%
+head: filtered ranking        424  86.86%
+bern:True |bs:512  |dataset:WN18 |dim:20   |epochs:120  |init_lr:0.01 |lr_decay:1.0  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             866  26.28%
+tail: filtered ranking        857  27.06%
+head: raw ranking             922  25.12%
+head: filtered ranking        911  25.82%

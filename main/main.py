@@ -15,6 +15,11 @@ from utils.writer import write_performance
 
 device = torch.device("cuda")
 
+def bool_parser(s):
+    if s not in {"True", "False"}:
+        raise ValueError("Not a valid boolean string")
+    return s == "True"    
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--save_path', type=str, default='./checkpoint')
 parser.add_argument('--dataset', type=str, default='WN18')
@@ -23,7 +28,7 @@ parser.add_argument('--epochs', type=int, default=120)
 parser.add_argument('--bs', type=int, default=2048, help="batch size")
 parser.add_argument('--init_lr', type=float, default=0.01)
 parser.add_argument('--lr_decay', type=float, default=1.0)
-parser.add_argument('--bern', type=bool, default=False, help="The model for sampling corrupt triplets. bern represents the bernoulli distribution.")
+parser.add_argument('--bern', type=bool_parser, default=False, help="The strategy for sampling corrupt triplets. bern: bernoulli distribution.")
 parser.add_argument('--margin', type=float, default=1.0)
 parser.add_argument('--norm', type=int, default=2, help='[1 | 2]')
 parser.add_argument('--seed', type=int, default=12345)
@@ -42,7 +47,7 @@ dim = configs.dim
 margin = configs.margin
 lr_decay = configs.lr_decay
 norm = configs.norm
-print("bern1: %s" % str(bern), flush = True)
+
 ### load data
 # train_data shape: (num_triplet, 3), type: torch.tensor, location: cpu
 n_train, train_data = get_data(dataset_name=dataset_name, mode="train")
