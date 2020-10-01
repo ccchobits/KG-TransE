@@ -1,3 +1,5 @@
+import time
+
 # log: .type: pandas.DataFrame
 def write_log(log):
     current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())

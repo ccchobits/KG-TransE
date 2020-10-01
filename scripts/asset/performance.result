@@ -76,3 +76,75 @@ tail: raw ranking             866  26.28%
 tail: filtered ranking        857  27.06%
 head: raw ranking             922  25.12%
 head: filtered ranking        911  25.82%
+bern:True |bs:1024 |dataset:WN18 |dim:20   |epochs:120  |init_lr:0.01 |lr_decay:1.0  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             595  36.96%
+tail: filtered ranking        585  38.40%
+head: raw ranking             594  35.26%
+head: filtered ranking        583  37.14%
+2020-10-01 16:37:02|bern:False|bs:2048 |dataset:WN18 |dim:20   |epochs:120  |init_lr:0.01 |lr_decay:1.0  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             313  44.80%
+tail: filtered ranking        303  48.08%
+head: raw ranking             314  43.68%
+head: filtered ranking        303  47.36%
+2020-10-01 17:24:28|bern:False|bs:4096 |dataset:WN18 |dim:20   |epochs:120  |init_lr:0.01 |lr_decay:1.0  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             313  51.12%
+tail: filtered ranking        303  55.38%
+head: raw ranking             305  50.66%
+head: filtered ranking        293  55.82%
+2020-10-01 18:16:28|bern:False|bs:512  |dataset:WN18 |dim:50   |epochs:120  |init_lr:0.01 |lr_decay:1.2  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             282  70.20%
+tail: filtered ranking        272  77.44%
+head: raw ranking             268  69.30%
+head: filtered ranking        257  76.90%
+2020-10-01 19:12:38|bern:False|bs:1024 |dataset:WN18 |dim:50   |epochs:120  |init_lr:0.01 |lr_decay:1.2  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             291  73.72%
+tail: filtered ranking        281  81.92%
+head: raw ranking             288  72.10%
+head: filtered ranking        277  81.26%
+2020-10-01 19:56:45|bern:False|bs:2048 |dataset:WN18 |dim:50   |epochs:120  |init_lr:0.01 |lr_decay:1.2  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             316  76.96%
+tail: filtered ranking        306  86.16%
+head: raw ranking             312  74.90%
+head: filtered ranking        300  85.70%
+2020-10-01 20:46:55|bern:False|bs:4096 |dataset:WN18 |dim:50   |epochs:120  |init_lr:0.01 |lr_decay:1.2  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             426  78.50%
+tail: filtered ranking        415  89.82%
+head: raw ranking             410  77.32%
+head: filtered ranking        398  89.48%
+2020-10-01 22:26:34|bern:False|bs:8192 |dataset:WN18 |dim:50   |epochs:120  |init_lr:0.01 |lr_decay:1.2  |margin:2.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             450  79.88%
+tail: filtered ranking        440  92.24%
+head: raw ranking             465  78.62%
+head: filtered ranking        452  91.66%
+2020-10-01 23:04:44|bern:False|bs:4096 |dataset:WN18 |dim:50   |epochs:120  |init_lr:0.01 |lr_decay:1.2  |margin:2.5  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             344  78.78%
+tail: filtered ranking        332  89.68%
+head: raw ranking             329  78.04%
+head: filtered ranking        317  89.88%
+2020-10-01 23:52:08|bern:False|bs:8192 |dataset:WN18 |dim:50   |epochs:120  |init_lr:0.01 |lr_decay:1.4  |margin:2.5  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             451  80.88%
+tail: filtered ranking        439  93.34%
+head: raw ranking             437  79.68%
+head: filtered ranking        424  93.24%
+2020-10-02 00:50:30|bern:False|bs:8192 |dataset:WN18 |dim:50   |epochs:120  |init_lr:0.01 |lr_decay:1.4  |margin:3.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             411  80.80%
+tail: filtered ranking        399  93.40%
+head: raw ranking             396  79.52%
+head: filtered ranking        383  93.34%
+2020-10-02 02:34:43|bern:False|bs:8192 |dataset:WN18 |dim:64   |epochs:120  |init_lr:0.01 |lr_decay:1.4  |margin:3.0  |norm:1    |
+                        mean rank   hit10
+tail: raw ranking             457  81.56%
+tail: filtered ranking        445  93.40%
+head: raw ranking             440  79.54%
+head: filtered ranking        427  93.26%

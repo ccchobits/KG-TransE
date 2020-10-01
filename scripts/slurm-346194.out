@@ -1,0 +1,4 @@
+epoch 20: lr: 0.0051 average loss per batch: 0.0543
+epoch 40: lr: 0.0026 average loss per batch: 0.0196
+epoch 60: lr: 0.0013 average loss per batch: 0.0097
+epoch 80: lr: 0.0007 average loss per batch: 0.0060
