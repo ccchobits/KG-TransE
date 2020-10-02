@@ -6,9 +6,9 @@ import torch.nn.functional as F
 
 device = torch.device("cuda")
 
-class TransE(nn.Module):
-  def __init__(self, n_ent, n_rel, depth, margin, norm):
-    super(TransE, self).__init__()
+class TransE_nn(nn.Module):
+  def __init__(self, n_ent, n_rel, depth, margin, norm, hidden):
+    super(TransE_nn, self).__init__()
     self.margin = margin
     self.norm = norm
     self.ent_embedding = nn.Embedding(n_ent, depth)
@@ -18,11 +18,21 @@ class TransE(nn.Module):
     # self.ent_embedding.weight.data = F.normalize(self.ent_embedding.weight.data, dim=1)
     self.rel_embedding.weight.data = F.normalize(self.rel_embedding.weight.data, dim=1)
 
+    self.hidden_layer = nn.Sequential(
+      torch.nn.Linear(2 * depth, hidden),
+      torch.nn.ReLU(),
+      torch.nn.Linear(hidden, depth),
+    )
+
   def get_score(self, heads, tails, rels):
     # shape: (batch_size, depth)
     heads, tails, rels = self.ent_embedding(heads), self.ent_embedding(tails), self.rel_embedding(rels)
+    # hidden_layer_input: .shape: (batch_size, 2 * deep)
+    hidden_layer_input = torch.cat([heads, rels], 1)
+    # hidden_layer_output: .shape: (batch_size, deep)
+    hidden_layer_output = self.hidden_layer(hidden_layer_input)
     # return shape: (batch_size,)
-    return torch.norm(heads + rels - tails, p=self.norm, dim=1)
+    return torch.norm(hidden_layer_output, p=self.norm, dim=1)
 
   def forward(self, pos_x, neg_x):
     self.ent_embedding.weight.data = F.normalize(self.ent_embedding.weight.data, dim=1)

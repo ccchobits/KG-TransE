@@ -9,7 +9,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 import pandas as pd
 
-from models.model_transE import TransE, TransE_norm
+from models.model_transE import TransE
+from models.model_transE_norm import TransE_norm
+from models.model_transE_nn import TransE_nn
 from utils.loader import get_data
 from utils.processor import head_tail_ratio
 from utils.writer import write_performance
@@ -37,7 +39,7 @@ parser.add_argument('--seed', type=int, default=12345)
 parser.add_argument('--dataset_path', type=str, default='../data/raw')
 parser.add_argument('--mode', type=str, default='train', help='[prepro | train | test | infer]')
 parser.add_argument('--log', type=bool_parser, default=True, help='logging or not')
-parser.add_argument('--model', type=str, default="TransE", help='The model for testing')
+parser.add_argument('--model', type=str, default="TransE", help='The model for testing [TransE | TransE_nn | TransE_norm]')
 configs = parser.parse_args()
 
 
@@ -70,6 +72,8 @@ if configs.model == "TransE":
     model = TransE(n_ent, n_rel, dim, margin, norm).to(device)
 elif configs.model == "TransE_norm":
     model = TransE_norm(n_ent, n_rel, dim, margin, norm).to(device)
+elif configs.model == "TransE_nn":
+    model = TransE_nn(n_ent, n_rel, dim, margin, norm, 100).to(device)
 else:
     raise ValueError("Cannot find model %s" % configs.model)
 
@@ -172,7 +176,9 @@ def evaluate():
     ranks = np.array(ranks)
     mean_rank = ranks.mean(axis=0, dtype=np.long)
     hit10 = np.sum(ranks <= 10, axis=0) / len(ranks)
-    result = pd.DataFrame({"mean rank": mean_rank, "hit10": hit10},
+    mrr_sum = (1. / ranks).sum(axis=0)
+    mrr = np.tile(np.array([mrr_sum[0] + mrr_sum[2], mrr_sum[1] + mrr_sum[3]]) / (2 * len(ranks)), 2)
+    result = pd.DataFrame({"mrr": mrr, "mean rank": mean_rank, "hit10": hit10},
                           index=["tail: raw ranking", "tail: filtered ranking", "head: raw ranking",
                                  "head: filtered ranking"])
     result["hit10"] = result["hit10"].apply(lambda x: "%.2f%%" % (x * 100))
