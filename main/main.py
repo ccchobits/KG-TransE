@@ -37,7 +37,7 @@ parser.add_argument('--seed', type=int, default=12345)
 parser.add_argument('--dataset_path', type=str, default='../data/raw')
 parser.add_argument('--mode', type=str, default='train', help='[prepro | train | test | infer]')
 parser.add_argument('--log', type=bool_parser, default=True, help='logging or not')
-parser.add_argument('--model', type=str, default="transE", help='The model for testing')
+parser.add_argument('--model', type=str, default="TransE", help='The model for testing')
 configs = parser.parse_args()
 
 
@@ -66,10 +66,12 @@ if bern:
     stat = head_tail_ratio(n_rel, train_data.cpu().numpy())
 
 ### create model and optimizer
-if configs.model == "transE":
+if configs.model == "TransE":
     model = TransE(n_ent, n_rel, dim, margin, norm).to(device)
-elif configs.model == "transE_norm":
+elif configs.model == "TransE_norm":
     model = TransE_norm(n_ent, n_rel, dim, margin, norm).to(device)
+else:
+    raise ValueError("Cannot find model %s" % configs.model)
 
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
