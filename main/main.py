@@ -9,7 +9,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import pandas as pd
 
-from models.model_transE import TransE
+from models.model_transE import TransE, TransE_norm
 from utils.loader import get_data
 from utils.processor import head_tail_ratio
 from utils.writer import write_performance
@@ -37,6 +37,7 @@ parser.add_argument('--seed', type=int, default=12345)
 parser.add_argument('--dataset_path', type=str, default='../data/raw')
 parser.add_argument('--mode', type=str, default='train', help='[prepro | train | test | infer]')
 parser.add_argument('--log', type=bool_parser, default=True, help='logging or not')
+parser.add_argument('--model', type=str, default="transE", help='The model for testing')
 configs = parser.parse_args()
 
 
@@ -65,7 +66,11 @@ if bern:
     stat = head_tail_ratio(n_rel, train_data.cpu().numpy())
 
 ### create model and optimizer
-model = TransE(n_ent, n_rel, dim, margin, norm).to(device)
+if configs.model == "transE":
+    model = TransE(n_ent, n_rel, dim, margin, norm).to(device)
+elif configs.model == "transE_norm":
+    model = TransE_norm(n_ent, n_rel, dim, margin, norm).to(device)
+
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 ### get corrupted samples
