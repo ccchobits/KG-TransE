@@ -32,7 +32,7 @@ class TransE_nn(nn.Module):
     # hidden_layer_output: .shape: (batch_size, deep)
     hidden_layer_output = self.hidden_layer(hidden_layer_input)
     # return shape: (batch_size,)
-    return torch.norm(hidden_layer_output, p=self.norm, dim=1)
+    return torch.norm(hidden_layer_output - rels, p=self.norm, dim=1)
 
   def forward(self, pos_x, neg_x):
     self.ent_embedding.weight.data = F.normalize(self.ent_embedding.weight.data, dim=1)
