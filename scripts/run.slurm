@@ -65,32 +65,58 @@ norm=1
 
 #python3 ../main/main.py --dim 64 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 3.0 --norm 1
 
-python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 3.0 --norm 1
+#python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 3.0 --norm 1
 
-python3 ../main/main.py --dim 64 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 3.0 --norm 1
+#python3 ../main/main.py --dim 64 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 3.0 --norm 1
 
-python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1
+#python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1
 
-python3 ../main/main.py --dim 64 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1
+#python3 ../main/main.py --dim 64 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1
 
-python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1
+#python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1
 
-python3 ../main/main.py --dim 64 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1
-
-
-python3 ../main/main.py --dim 96 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 3.0 --norm 1
-
-python3 ../main/main.py --dim 96 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 3.0 --norm 1
-
-python3 ../main/main.py --dim 96 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1
-
-python3 ../main/main.py --dim 96 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1
-
-python3 ../main/main.py --dim 96 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1
-
-python3 ../main/main.py --dim 96 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1
+#python3 ../main/main.py --dim 64 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1
 
 
+#python3 ../main/main.py --dim 96 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 3.0 --norm 1
+
+#python3 ../main/main.py --dim 96 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 3.0 --norm 1
+
+#python3 ../main/main.py --dim 96 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1
+
+#python3 ../main/main.py --dim 96 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1
+
+#python3 ../main/main.py --dim 96 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1
+
+#python3 ../main/main.py --dim 96 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1
+
+#python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 5.0 --norm 1
+
+#python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1
+
+#python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE_norm --epochs 160
+
+#python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 2 --model TransE_norm --epochs 160
+
+#python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE --epochs 300
+
+#python3 ../main/main.py --dim 64 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE_norm --epochs 300
+
+#python3 ../main/main.py --dim 50 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE --epochs 300
+
+#python3 ../main/main.py --dim 96 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE --epochs 300
+
+#python3 ../main/main.py --dim 54 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE --epochs 300
+
+#python3 ../main/main.py --dim 54 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern True --margin 4.0 --norm 1 --model TransE --epochs 300
+
+#python3 ../main/main.py --dim 128 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE --epochs 300
+
+#python3 ../main/main.py --dim 128 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE --epochs 300
+
+python3 ../main/main.py --dim 30 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE_nn --epochs 120
+
+python3 ../main/main.py --dim 40 --bs 4096 --init_lr 0.01 --lr_decay 1.4 --bern False --margin 4.0 --norm 1 --model TransE_nn --epochs 120
 
 
 
@@ -100,4 +126,8 @@ python3 ../main/main.py --dim 96 --bs 8192 --init_lr 0.01 --lr_decay 1.4 --bern 
 
 
 
-rm "slurm-${SLURM_JOB_ID}.out"
+
+
+
+
+#rm "slurm-${SLURM_JOB_ID}.out"
