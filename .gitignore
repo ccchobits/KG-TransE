@@ -108,5 +108,5 @@ venv.bak/
 
 # add
 /checkpoint
-.out
-.swp
+*.out
+*.swp
