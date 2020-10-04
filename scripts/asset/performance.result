@@ -298,3 +298,15 @@ tail: raw ranking       0.000476      17766  0.02%
 tail: filtered ranking  0.000476      17757  0.02%
 head: raw ranking       0.000476      17203  0.08%
 head: filtered ranking  0.000476      17194  0.08%
+2020-10-04 14:25:36|model:TransE    |bern:False|bs:4096 |dataset:WN18 |dim:64 |epochs:300 |init_lr:0.01|lr_decay:1.4|margin:4.0|norm:1|
+                             mrr  mean rank   hit10
+tail: raw ranking       0.327919        272  80.30%
+tail: filtered ranking  0.441379        260  92.52%
+head: raw ranking       0.327919        270  78.96%
+head: filtered ranking  0.441379        257  92.48%
+2020-10-04 17:01:03|model:TransE    |bern:False|bs:4096 |dataset:WN18 |dim:64 |epochs:300 |init_lr:0.01|lr_decay:1.4|margin:4.0|norm:1|
+                             mrr  mean rank   hit10
+tail: raw ranking       0.327988        268  80.14%
+tail: filtered ranking  0.444020        256  92.66%
+head: raw ranking       0.327988        277  78.94%
+head: filtered ranking  0.444020        263  92.46%
