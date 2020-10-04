@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 
+
 # train_data shape: (num_triplet, 3), type: numpy, location: cpu
 def head_tail_ratio(n_rel, train_data):
     stat = np.empty((n_rel, 2))

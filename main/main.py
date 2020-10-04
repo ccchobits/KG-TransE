@@ -19,10 +19,12 @@ from utils.logger import write_log
 
 device = torch.device("cuda")
 
+
 def bool_parser(s):
     if s not in {"True", "False"}:
         raise ValueError("Not a valid boolean string")
-    return s == "True"    
+    return s == "True"
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--save_path', type=str, default='./checkpoint')
@@ -32,17 +34,17 @@ parser.add_argument('--epochs', type=int, default=120)
 parser.add_argument('--bs', type=int, default=2048, help="batch size")
 parser.add_argument('--init_lr', type=float, default=0.01)
 parser.add_argument('--lr_decay', type=float, default=1.0)
-parser.add_argument('--bern', type=bool_parser, default=False, help="The strategy for sampling corrupt triplets. bern: bernoulli distribution.")
+parser.add_argument('--bern', type=bool_parser, default=False,
+                    help="The strategy for sampling corrupt triplets. bern: bernoulli distribution.")
 parser.add_argument('--margin', type=float, default=1.0)
 parser.add_argument('--norm', type=int, default=2, help='[1 | 2]')
 parser.add_argument('--seed', type=int, default=12345)
 parser.add_argument('--dataset_path', type=str, default='../data/raw')
 parser.add_argument('--mode', type=str, default='train', help='[prepro | train | test | infer]')
 parser.add_argument('--log', type=bool_parser, default=True, help='logging or not')
-parser.add_argument('--model', type=str, default="TransE", help='The model for testing [TransE | TransE_nn | TransE_norm]')
+parser.add_argument('--model', type=str, default="TransE",
+                    help='The model for testing [TransE | TransE_nn | TransE_norm]')
 configs = parser.parse_args()
-
-
 
 dataset_name = configs.dataset
 bern = configs.bern
@@ -79,6 +81,7 @@ else:
 
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
+
 ### get corrupted samples
 def get_neg_samples(pos_samples):
     size = len(pos_samples)
@@ -100,6 +103,7 @@ def get_neg_samples(pos_samples):
         else:
             neg_samples.data[i][1] = new_ent[i]
     return neg_samples
+
 
 ### training the triplet in train_data
 total_loss = 0
@@ -124,8 +128,9 @@ for epoch in range(1, epochs + 1):
 
     if epoch % 20 == 0:
         print("epoch %d: lr: %.4f average loss per batch: %.4f" %
-              (epoch, learning_rate, total_loss / (n_train // batch_size)), flush = True)
+              (epoch, learning_rate, total_loss / (n_train // batch_size)), flush=True)
     total_loss = 0
+
 
 ### evaluate the triples in test_data
 # triplet.type: torch.tensor, triplet.shape: (3, )
@@ -168,6 +173,7 @@ def rank(triplet):
 
     return tail_raw_ranking, tail_filtered_ranking, head_raw_ranking, head_filtered_ranking
 
+
 @torch.no_grad()
 def evaluate():
     ranks = []
@@ -182,7 +188,7 @@ def evaluate():
                           index=["tail: raw ranking", "tail: filtered ranking", "head: raw ranking",
                                  "head: filtered ranking"])
     result["hit10"] = result["hit10"].apply(lambda x: "%.2f%%" % (x * 100))
-    ranks = pd.DataFrame(ranks, columns = ["tail:raw", "tail:filtered", "head:raw", "head:filtered"])
+    ranks = pd.DataFrame(ranks, columns=["tail:raw", "tail:filtered", "head:raw", "head:filtered"])
     return ranks, result
 
 

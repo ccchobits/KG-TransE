@@ -25,6 +25,8 @@ order = {
     "margin": 9,
     "norm": 10,
 }
+
+
 # performance.type: pd.DataFrame
 def write_performance(configs, performance, path):
     with open(path, "a") as f:
@@ -32,6 +34,6 @@ def write_performance(configs, performance, path):
         all_arguments = sorted(filter(lambda x: x[0] not in filtered_arguments, list(vars(configs).items())),
                                key=lambda x: order[x[0]])
         for key, value in all_arguments:
-            f.write(key + ":" + ("%-"+ str(span[key]) +"s") % value + "|")
+            f.write(key + ":" + ("%-" + str(span[key]) + "s") % value + "|")
         f.write("\n")
         f.write(performance.to_string() + "\n")
