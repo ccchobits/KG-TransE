@@ -31,7 +31,7 @@ class TransE_nn(nn.Module):
         out = F.relu(out)
         out = self.linear2(out)
         # return shape: (batch_size,)
-        return torch.norm(out - rels, p=self.norm, dim=1)
+        return torch.norm(out - tails, p=self.norm, dim=1)
 
     def forward(self, pos_x, neg_x):
         self.ent_embedding.weight.data = F.normalize(self.ent_embedding.weight.data, dim=1)
