@@ -1,6 +1,6 @@
 import time
 
-filtered_arguments = ["save_path", "seed", "dataset_path", "mode", "log"]
+filtered_arguments = ["save_path", "seed", "dataset_path", "mode", "log", "gpu"]
 span = {
     "bern": 5,
     "bs": 5,

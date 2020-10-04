@@ -44,6 +44,7 @@ parser.add_argument('--mode', type=str, default='train', help='[prepro | train |
 parser.add_argument('--log', type=bool_parser, default=True, help='logging or not')
 parser.add_argument('--model', type=str, default="TransE",
                     help='The model for testing [TransE | TransE_nn | TransE_norm]')
+parser.add_argument('--gpu', type=str, default=0, help='The GPU to be used')
 configs = parser.parse_args()
 
 dataset_name = configs.dataset
@@ -55,6 +56,9 @@ dim = configs.dim
 margin = configs.margin
 lr_decay = configs.lr_decay
 norm = configs.norm
+gpu = configs.gpu
+
+os.environ["CUDA_VISIBLE_DEVICES"] = gpu
 
 ### load data
 # train_data shape: (num_triplet, 3), type: torch.tensor, location: cpu
